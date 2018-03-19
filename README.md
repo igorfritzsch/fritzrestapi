@@ -19,8 +19,7 @@ The following api endpoints are available:
 `-e USERNAME` - fritz!box username  
 `-e PASSWORD` - fritz!box password  
 `-e ALERT` - enable alert notification via IFTTT  
-`-e INTERVAL` - interval in ms which polls the device status
-(default:10000)  
+`-e INTERVAL` - interval in ms which polls the device status (default: 10000)  
 `-e THRESHOLD` - power in mW which triggers an alert notification when
 it is above threshold value (default: 15000)  
 `-e IFTTT_KEY` - IFTTT Key which is given by the Webhooks service  
