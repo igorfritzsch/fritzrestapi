@@ -9,6 +9,7 @@ var fritz = new Fritz(process.env.USERNAME, process.env.PASSWORD);
 
 var devices = {};
 var timer = null;
+var realm = (process.env.REALM) ? '/' + process.env.REALM : '';
 var alert = process.env.ALERT && JSON.parse(process.env.ALERT.toLowerCase()) || false;
 var interval = process.env.INTERVAL && parseInt(process.env.INTERVAL) || 10000;
 var threshold = process.env.THRESHOLD && parseInt(process.env.THRESHOLD) || 15000;
@@ -111,14 +112,14 @@ if (alert) {
 }
 
 /* GET devices. */
-router.get('/devices', function(req, res, next) {
+router.get(realm + '/devices', function(req, res, next) {
 	return fritz.getDeviceList().then(function(devices) {
 		res.json(devices);
 	});
 });
 
 /* GET device. */
-router.get('/device/:name', function(req, res, next) {
+router.get(realm + '/device/:name', function(req, res, next) {
 	return fritz.getDeviceList().then(function(devices) {
 	  for(var i=0;i<devices.length;i++) {
 		  if (devices[i].name === req.params.name) {
