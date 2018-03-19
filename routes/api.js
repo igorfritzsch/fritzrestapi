@@ -88,13 +88,13 @@ if (alert) {
 	};
 
 	/* Start alert at default: 6:00pm */
-	var alertStart = schedule.scheduleJob({hour: startTime[0], minute: startTime[1]}, function(){
+	schedule.scheduleJob({hour: startTime[0], minute: startTime[1]}, function(){
 		console.log('Start Alert!');
 		startInterval();
 	});
 
 	/* Stop alert at default: 6:00am */
-	var alertEnd = schedule.scheduleJob({hour: endTime[0], minute: endTime[1]}, function(){
+	schedule.scheduleJob({hour: endTime[0], minute: endTime[1]}, function(){
 		console.log('Stop Alert!');
 		stopInterval();
 	});
