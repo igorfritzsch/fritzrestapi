@@ -116,7 +116,7 @@ if (alert) {
 	});
 
 	/* Start if current time between starttime and endtime */
-	if (h>=startTime[0] && m>startTime[1] && h<=endTime[0] && m<endTime[1]) {
+	if ((h>=startTime[0] && m>startTime[1]) || (h<=endTime[0] && m<endTime[1])) {
 		console.log('Start Alert!');
 		sendNotification({value1: 'ALL', value2: 'STARTED', value3: '-'});
 		startInterval();
