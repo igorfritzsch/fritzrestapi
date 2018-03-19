@@ -1,5 +1,4 @@
 ## Usage
-
 ```
 docker run \
 --name fritzrestapi \
