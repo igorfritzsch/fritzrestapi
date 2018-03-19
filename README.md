@@ -8,6 +8,7 @@ docker run \
 -p 3000:3000 \
 -d ionxat/fritzrestapi
 ```
+
 ## API
 The following api endpoints are available:  
 `/api/<realm>/devices` - list all devices  
