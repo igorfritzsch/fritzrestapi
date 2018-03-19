@@ -75,10 +75,12 @@ if (alert) {
 											});
 										}
 										else if (devices[sw]['alert'] && pow < threshold) {
-											devices[sw]['alert'] = false;
-											console.log("["  + Date.now() + " | " + sw + "] power is: " + powStr);
-											if (iftttEvent)
-												sendNotification({value1: name, value2: 'OFF', value3: powStr});
+											fritz.getSwitchName(sw).then(function(name) {
+												devices[sw]['alert'] = false;
+												console.log("["  + Date.now() + " | " + sw + "] power is: " + powStr);
+												if (iftttEvent)
+													sendNotification({value1: name, value2: 'OFF', value3: powStr});
+											});
 										}
 									}
 								});
