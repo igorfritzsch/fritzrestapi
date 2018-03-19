@@ -53,6 +53,10 @@ function sendNotification(params) {
 /* Alert when threshold has been reached. */
 if (alert) {
 
+	var d = new Date();
+	var h = d.getHours();
+	var m = d.getMinutes();
+
 	/* Start alert */
 	var startInterval = function () {
 		timer = setInterval(function () {
@@ -110,6 +114,13 @@ if (alert) {
 		sendNotification({value1: 'ALL', value2: 'STOPPED', value3: '-'});
 		stopInterval();
 	});
+
+	/* Start if current time between starttime and endtime */
+	if (h>=startTime[0] && m>startTime[1] && h<=endTime[0] && m<endTime[1]) {
+		console.log('Start Alert!');
+		sendNotification({value1: 'ALL', value2: 'STARTED', value3: '-'});
+		startInterval();
+	}
 
 }
 
